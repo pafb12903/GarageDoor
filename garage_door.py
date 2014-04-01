@@ -1,10 +1,29 @@
-#*****************************************
+#****************************************************************************************
 # Script:        garage_door.py
 # Author:        Jim Adams
 # Date:          March 21, 2014
+# Version:       1.1
 # Language:      Python 3
 # Target:        GeekiPi (Raspberry Pi)
-#*****************************************
+#
+# History
+# =======================================================================================
+# Version:       1.1
+# Date:          March 26, 2014
+# Author:        Jim Adams
+#
+# Added improved user interface including support for numeric or alpha choices for
+# selecting which door to open or close.
+# Also added prompt to ask the user if any open door should be closed when the
+# user chooses to exit the application.
+# Added better formatted messages.
+# ---------------------------------------------------------------------------------------
+# Version:       1.0
+# Date:          March 21, 2014
+# Author:        Jim Adams
+#
+# Original version of the application.
+#****************************************************************************************
 
 import time
 import pifacedigitalio
@@ -57,7 +76,7 @@ class Door:
 	def toggle(self):
 		if not mode_test:
 			pfd.leds[self.door_number-1].turn_on()
-			time.sleep(0.5)
+			time.sleep(0.25)
 			pfd.leds[self.door_number-1].turn_off()
 		else:
 			print("Test Mode: Simulating Door Action...")
